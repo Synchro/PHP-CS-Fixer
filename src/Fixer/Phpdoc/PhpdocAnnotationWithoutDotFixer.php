@@ -32,7 +32,7 @@ final class PhpdocAnnotationWithoutDotFixer extends AbstractFixer
     public function getDefinition()
     {
         return new FixerDefinition(
-            'Phpdocs annotation descriptions should not be a sentence.',
+            'Phpdocs annotation descriptions should not end with a dot.',
             [new CodeSample('<?php
 /**
  * @param string $bar Some string.
@@ -85,20 +85,6 @@ function foo ($bar) {}
 
                 $endLine = $doc->getLine($annotation->getEnd());
                 $endLine->setContent(preg_replace('/(?<![.。])[.。](\s+)$/u', '\1', $endLine->getContent()));
-
-                $startLine = $doc->getLine($annotation->getStart());
-                $optionalTypeRegEx = $annotation->supportTypes()
-                    ? sprintf('(?:%s\s+(?:\$\w+\s+)?)?', preg_quote(implode('|', $annotation->getTypes())))
-                    : '';
-                $content = preg_replace_callback(
-                    '/^(\s*\*\s*@\w+\s+'.$optionalTypeRegEx.')(\p{Lu}?(?=\p{Ll}|\p{Zs}))(.*)$/',
-                    function (array $matches) {
-                        return $matches[1].strtolower($matches[2]).$matches[3];
-                    },
-                    $startLine->getContent(),
-                    1
-                );
-                $startLine->setContent($content);
             }
 
             $tokens[$index] = new Token([T_DOC_COMMENT, $doc->getContent()]);
