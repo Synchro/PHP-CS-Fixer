@@ -973,6 +973,10 @@ Choose from the list of available rules:
 
 * **phpdoc_annotation_without_dot** [@Symfony]
 
+  Phpdocs annotation descriptions should not end with a dot.
+
+* **phpdoc_annotation_without_dot_lowercase**
+
   Phpdocs annotation descriptions should not be a sentence.
 
 * **phpdoc_indent** [@Symfony]
