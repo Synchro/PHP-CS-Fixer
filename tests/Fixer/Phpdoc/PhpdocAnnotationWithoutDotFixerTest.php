@@ -59,7 +59,7 @@ final class PhpdocAnnotationWithoutDotFixerTest extends AbstractFixerTestCase
      * @param int    $int        Some multiline
      *                           description. With many dots.
      *
-     * @return array result array
+     * @return array Result array
      *
      * @SomeCustomAnnotation This is important sentence that must not be modified.
      */',

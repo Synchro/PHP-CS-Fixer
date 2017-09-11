@@ -12,8 +12,8 @@ class Foo {
     /**
      * Foo.
      *
-     * @param int   $fo  this is int
-     * @param float $bar this is float
+     * @param int   $fo  This is int
+     * @param float $bar This is float
      * @param mixed $qux
      *
      * @throws Exception
